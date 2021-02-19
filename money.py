@@ -8,7 +8,7 @@ caesar=0
 def comment(id,re):
     url = 'https://api.bilibili.com/x/web-interface/coin/add'
     header = {'user-agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 11.1; rv:85.0) Gecko/20100101 Firefox/85.0",
-              'cookie': "",
+              'cookie': "",#写自己的cookie
               'referer':re
     }
     data = {
@@ -16,7 +16,7 @@ def comment(id,re):
             'multiply': '1',
             'select_like': "0",
             'cross_domain': 'true',
-            'csrf': 'e631c26d38044b51b0a311883355eeb8' #没有过多研究，个人理解为每个用户拥有的验证特征码  需要自行去手动评论F12抓包获取
+            'csrf': 'e631c26d38044b51b0a311883355eeb8'
         }
     data=parse.urlencode(data).encode('utf-8')
     html=request.Request(url=url, headers=header,data=data,method='POST')
